@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetClinicBusinessLogic.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace PetClinicBusinessLogic.ViewModels
 {
-    public class ClientViewModels
+    public class ClientViewModel
     {
         public int Id { get; set; }
         [DataMember]

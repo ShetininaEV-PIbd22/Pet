@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PetClinicBusinessLogic.BindingModels
+namespace PetClinicDatabaseImplement.Models
 {
-    public class VisitBindingModel
+    public class Visit
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         public int ClientId { get; set; }
+        
         public String ClientFIO { get; set; }
         public DateTime DateVisit { get; set; }
         public String Animal { get; set; }
@@ -16,7 +17,5 @@ namespace PetClinicBusinessLogic.BindingModels
         public Dictionary<int, (string, int)> Services { get; set; }
         public decimal Sum { get; set; }
         public VisitStatus Status { get; set; }
-        
-
     }
 }

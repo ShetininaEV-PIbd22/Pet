@@ -1,28 +1,27 @@
 ﻿using PetClinicBusinessLogic.Enums;
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace PetClinicBusinessLogic.BindingModels
+namespace PetClinicDatabaseImplement.Models
 {
-    public class ClientBindingModel
+    public class Client
     {
-        [DataMember]
-        public int? Id { get; set; }
-        [DataMember]
+        public int Id { get; set; }
+        [Required]
         public string Login { get; set; }
-        [DataMember]
+        [Required]
         public string Password { get; set; }
-        [DataMember]
+        [Required]
         public string Email { get; set; }
-        [DataMember]
+        [Required]
         public string FIO { get; set; }
-        [DataMember]
+        [Required]
         public string Phone { get; set; }
-        [DataMember]
-        public DateTime DateRegister  { get; set; }
-        [DataMember]
+        [Required]
+        public DateTime DateRegister { get; set; }
+        [Required]
         public ClientStatus Status { get; set; }
     }
 }
