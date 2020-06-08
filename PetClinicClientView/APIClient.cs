@@ -11,7 +11,7 @@ namespace PetClinicClientView
     public class APIClient
     {
         private static readonly HttpClient client = new HttpClient();
-        static bool metka = false;
+        static bool  metka=false;
         public static void Connect()
         {
             client.BaseAddress = new Uri(ConfigurationManager.AppSettings["IPAddress"]);

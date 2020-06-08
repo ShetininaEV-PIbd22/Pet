@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PetClinicBusinessLogic.Interfaces;
+using PetClinicBusinessLogic.BusinessLogics;
+using PetClinicDatabaseImplement.Implements;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,11 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using PetClinicBusinessLogic.BusinessLogics_Client_;
-using PetClinicBusinessLogic.Interfaces;
-using PetClinicListImplement.Implements;
 
-namespace PetCliticClientASP
+namespace PetClinicRestApi
 {
     public class Startup
     {
@@ -29,6 +29,8 @@ namespace PetCliticClientASP
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IClientLogic, ClientLogic>();
+            services.AddTransient<IVisitLogic, VisitLogic>();
+            services.AddTransient<IServiceLogic, ServiceLogic>();
             services.AddTransient<MainLogic>();
             services.AddControllers();
         }

@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace PetClinicBusinessLogic.ViewModels
 {
-    //услуга
+    /// <summary>
+    /// Изделие, изготавливаемое в кондитерской
+    /// </summary>
     [DataContract]
     public class ServiceViewModel
     {

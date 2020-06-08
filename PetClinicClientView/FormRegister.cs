@@ -15,10 +15,11 @@ namespace PetClinicClientView
         {
             InitializeComponent();
         }
+
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBoxLogin.Text) && !string.IsNullOrEmpty(textBoxPassword.Text)
-                && !string.IsNullOrEmpty(textBoxEmail.Text) && !string.IsNullOrEmpty(textBoxClientFIO.Text))
+            if (!string.IsNullOrEmpty(textBoxLogin.Text) && !string.IsNullOrEmpty(textBoxPassword.Text) 
+                && !string.IsNullOrEmpty(textBoxClientFIO.Text) && !string.IsNullOrEmpty(textBoxEmail.Text) && !string.IsNullOrEmpty(textBoxPhone.Text))
             {
                 try
                 {
@@ -26,20 +27,22 @@ namespace PetClinicClientView
                     {
                         FIO = textBoxClientFIO.Text,
                         Login = textBoxLogin.Text,
+                        Password = textBoxPassword.Text,
                         Email=textBoxEmail.Text,
-                        Password = textBoxPassword.Text
+                        Phone=textBoxPhone.Text,
                     });
-                    MessageBox.Show("Регистрация прошла успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Регистрация прошла успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Введите логин, пароль, почту и ФИО", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введите логин, пароль, ФИО, почту и номер телефона.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

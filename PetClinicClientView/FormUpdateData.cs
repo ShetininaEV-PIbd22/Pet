@@ -1,10 +1,6 @@
 ﻿using PetClinicBusinessLogic.BindingModels;
+using PetClinicClientView;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace PetClinicClientView
@@ -18,30 +14,31 @@ namespace PetClinicClientView
             textBoxLogin.Text = Program.Client.Login;
             textBoxPassword.Text = Program.Client.Password;
             textBoxEmail.Text = Program.Client.Email;
+            textBoxPhone.Text = Program.Client.Phone;
         }
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBoxLogin.Text) && !string.IsNullOrEmpty(textBoxPassword.Text) 
-                && !string.IsNullOrEmpty(textBoxClientFIO.Text) && !string.IsNullOrEmpty(textBoxEmail.Text))
+            if (!string.IsNullOrEmpty(textBoxLogin.Text) && !string.IsNullOrEmpty(textBoxPassword.Text) && !string.IsNullOrEmpty(textBoxClientFIO.Text))
             {
                 try
                 {
                     APIClient.PostRequest("api/client/updatedata", new ClientBindingModel
                     {
-                        Id = Program.Client.Id,
                         FIO = textBoxClientFIO.Text,
                         Login = textBoxLogin.Text,
-                        Email=textBoxEmail.Text,
-                        Password = textBoxPassword.Text
+                        Password = textBoxPassword.Text,
+                        Email = textBoxEmail.Text,
+                        Phone = textBoxPhone.Text,
                     });
 
                     MessageBox.Show("Обновление прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Program.Client.FIO = textBoxClientFIO.Text;
                     Program.Client.Login = textBoxLogin.Text;
-                    Program.Client.Email = textBoxEmail.Text;
                     Program.Client.Password = textBoxPassword.Text;
+                    Program.Client.Email = textBoxEmail.Text;
+                    Program.Client.Phone = textBoxPhone.Text;
                     Close();
                 }
                 catch (Exception ex)
@@ -51,7 +48,7 @@ namespace PetClinicClientView
             }
             else
             {
-                MessageBox.Show("Введите логин, пароль, почту и ФИО", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введите логин, пароль, ФИО, почту и номер телефона.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

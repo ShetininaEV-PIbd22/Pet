@@ -1,7 +1,10 @@
 ﻿using PetClinicBusinessLogic.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PetClinicDatabaseImplement.Models
 {
@@ -9,13 +12,20 @@ namespace PetClinicDatabaseImplement.Models
     {
         public int Id { get; set; }
         public int ClientId { get; set; }
-        
-        public String ClientFIO { get; set; }
-        public DateTime DateVisit { get; set; }
-        public String Animal { get; set; }
-        public String AnimalName { get; set; }
-        public Dictionary<int, (string, int)> Services { get; set; }
+        public int ServiceId { get; set; }
+        [Required]
+        public string Animal { get; set; }
+        [Required]
+        public string AnimalName { get; set; }
+        [Required]
+        public int Count { get; set; }
+        [Required]
         public decimal Sum { get; set; }
+        [Required]
         public VisitStatus Status { get; set; }
+        [Required]
+        public DateTime DateVisit { get; set; }
+        public Service Service { get; set; }
+        public Client Client { get; set; }
     }
 }

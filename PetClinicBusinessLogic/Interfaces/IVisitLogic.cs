@@ -1,8 +1,6 @@
 ﻿using PetClinicBusinessLogic.BindingModels;
 using PetClinicBusinessLogic.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PetClinicBusinessLogic.Interfaces
 {

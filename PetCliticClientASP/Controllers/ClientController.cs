@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PetClinicBusinessLogic.BindingModels;
 using PetClinicBusinessLogic.Interfaces;
 using PetClinicBusinessLogic.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-namespace PetCliticClientASP.Controllers
+namespace PetClinicRestApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ClientController : ControllerBase
     {

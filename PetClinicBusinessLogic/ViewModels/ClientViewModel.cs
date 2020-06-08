@@ -1,14 +1,12 @@
-﻿using PetClinicBusinessLogic.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace PetClinicBusinessLogic.ViewModels
 {
+    [DataContract]
     public class ClientViewModel
     {
+        [DataMember]
         public int Id { get; set; }
         [DataMember]
         [DisplayName("ФИО")]
@@ -21,16 +19,12 @@ namespace PetClinicBusinessLogic.ViewModels
         [DisplayName("Пароль")]
         public string Password { get; set; }
         [DataMember]
-        [DisplayName("Электронная почта")]
+        [DisplayName("Почта")]
         public string Email { get; set; }
         [DataMember]
-        [DisplayName("Контактный телефон")]
+        [DisplayName("Телефон")]
         public string Phone { get; set; }
-        [DataMember]
-        [DisplayName("Дата регистрации")]
-        public DateTime DateRegister { get; set; }
-        [DataMember]
-        [DisplayName("Статус")]
-        public ClientStatus Status { get; set; }
+
+
     }
 }

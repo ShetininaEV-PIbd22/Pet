@@ -2,11 +2,10 @@
 using PetClinicBusinessLogic.Interfaces;
 using PetClinicBusinessLogic.ViewModels;
 using PetClinicListImplement.Models;
+using PdfSharp.Pdf.Content;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PetClinicListImplement.Implements
 {
@@ -102,6 +101,7 @@ namespace PetClinicListImplement.Implements
             client.Login = model.Login;
             client.Password = model.Password;
             client.Email = model.Email;
+            client.Phone = model.Phone;
             return client;
         }
 
@@ -113,7 +113,8 @@ namespace PetClinicListImplement.Implements
                 FIO = client.FIO,
                 Login = client.Login,
                 Password = client.Password,
-                Email=client.Email
+                Email=client.Email,
+                Phone=client.Phone
             };
         }
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PetClinicBusinessLogic.BindingModels
+﻿namespace PetClinicBusinessLogic.BindingModels
 {
     public class ChangeStatusBindingModel
     {

@@ -1,16 +1,15 @@
 ﻿using PetClinicBusinessLogic.BindingModels;
+using PetClinicBusinessLogic.Enums;
 using PetClinicBusinessLogic.Interfaces;
 using PetClinicBusinessLogic.ViewModels;
 using PetClinicListImplement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PetClinicListImplement.Implements
 {
-    public class VisitLogic: IVisitLogic
+    public class VisitLogic : IVisitLogic
     {
         private readonly DataListSingleton source;
 
@@ -21,32 +20,32 @@ namespace PetClinicListImplement.Implements
 
         public void CreateOrUpdate(VisitBindingModel model)
         {
-            Visit tempOrder = model.Id.HasValue ? null : new Visit { Id = 1 };
+            Visit tempVisit = model.Id.HasValue ? null : new Visit { Id = 1 };
 
-            foreach (var order in source.Visits)
+            foreach (var visit in source.Visits)
             {
-                if (!model.Id.HasValue && order.Id >= tempOrder.Id)
+                if (!model.Id.HasValue && visit.Id >= tempVisit.Id)
                 {
-                    tempOrder.Id = order.Id + 1;
+                    tempVisit.Id = visit.Id + 1;
                 }
-                else if (model.Id.HasValue && order.Id == model.Id)
+                else if (model.Id.HasValue && visit.Id == model.Id)
                 {
-                    tempOrder = order;
+                    tempVisit = visit;
                 }
             }
 
             if (model.Id.HasValue)
             {
-                if (tempOrder == null)
+                if (tempVisit == null)
                 {
-                    throw new Exception("Элемент не найден");
+                    throw new Exception("Заявка на визит не найдена.");
                 }
 
-                CreateModel(model, tempOrder);
+                CreateModel(model, tempVisit);
             }
             else
             {
-                source.Visits.Add(CreateModel(model, tempOrder));
+                source.Visits.Add(CreateModel(model, tempVisit));
             }
         }
 
@@ -61,55 +60,75 @@ namespace PetClinicListImplement.Implements
                 }
             }
 
-            throw new Exception("Элемент не найден");
+            throw new Exception("Заявка на визит не найдена.");
         }
 
         private Visit CreateModel(VisitBindingModel model, Visit visit)
         {
-            visit.ClientId = model.ClientId;
-            visit.ClientFIO = source.Clients.FirstOrDefault((n) => n.Id == visit.ClientId).FIO;
-            visit.DateVisit = model.DateVisit;
+            visit.ServiceId = model.ServiceId;
             visit.Animal = model.Animal;
             visit.AnimalName = model.AnimalName;
-            visit.Status = model.Status;
+            visit.Count = model.Count;
+            visit.ClientId = (int)model.ClientId;
+            visit.DateVisit = model.DateVisit;
             visit.Sum = model.Sum;
-            
+            visit.Status = model.Status;
+
             return visit;
         }
 
         public List<VisitViewModel> Read(VisitBindingModel model)
         {
             List<VisitViewModel> result = new List<VisitViewModel>();
+
             foreach (var visit in source.Visits)
             {
-                if (model != null)
+                if (
+                    model != null && visit.Id == model.Id
+                    || model.DateFrom.HasValue && model.DateTo.HasValue && visit.DateVisit >= model.DateFrom && visit.DateVisit <= model.DateTo
+                    //|| model.FreeOrders.HasValue && model.FreeOrders.Value
+                )
                 {
-                    if (visit.Id == model.Id && visit.ClientId == model.ClientId)
-                    {
-                        result.Add(CreateViewModel(visit));
-                        break;
-                    }
-                    continue;
+                    result.Add(CreateViewModel(visit));
+                    break;
                 }
+
                 result.Add(CreateViewModel(visit));
             }
+
             return result;
         }
 
         private VisitViewModel CreateViewModel(Visit visit)
         {
+            string serviceName = null;
+
+            foreach (var service in source.Services)
+            {
+                if (service.Id == visit.ServiceId)
+                {
+                    serviceName = service.ServiceName;
+                }
+            }
+
+            if (serviceName == null)
+            {
+                throw new Exception("Услуга не найдена.");
+            }
+
             return new VisitViewModel
             {
                 Id = visit.Id,
                 ClientId = visit.ClientId,
-                ClientFIO = source.Clients.FirstOrDefault((n) => n.Id == visit.ClientId).FIO,
-                DateVisit = visit.DateVisit,
-                Animal=visit.Animal,
-                AnimalName=visit.AnimalName,
+                ServiceId = visit.ServiceId,
+                ServiceName = serviceName,
+                Animal= visit.Animal,
+                AnimalName= visit.AnimalName,
+                Count = visit.Count,
+                Sum = visit.Sum,
                 Status = visit.Status,
-                Sum = visit.Sum
+                DateVisit = visit.DateVisit,
             };
         }
     }
 }
-

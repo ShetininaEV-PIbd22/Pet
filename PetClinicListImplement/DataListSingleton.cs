@@ -1,22 +1,29 @@
 ﻿using PetClinicListImplement.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PetClinicListImplement
 {
-    class DataListSingleton
+    public class DataListSingleton
     {
         private static DataListSingleton instance;
         public List<Client> Clients { get; set; }
+        public List<Medicine> Medicines { get; set; }
+
         public List<Visit> Visits { get; set; }
-        private DataListSingleton()
+
+        public List<Service> Services { get; set; }
+
+        public List<ServiceMedicines> ServiceMedicines { get; set; }
+
+        private DataListSingleton() 
         {
+            Medicines = new List<Medicine>();
             Clients = new List<Client>();
             Visits = new List<Visit>();
+            Services = new List<Service>();
+            ServiceMedicines = new List<ServiceMedicines>();
         }
+
         public static DataListSingleton GetInstance()
         {
             if (instance == null)

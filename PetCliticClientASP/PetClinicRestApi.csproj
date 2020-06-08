@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PetClinicBusinessLogic\PetClinicBusinessLogic.csproj" />
+    <ProjectReference Include="..\PetClinicDatabaseImplement\PetClinicDatabaseImplement.csproj" />
+    <ProjectReference Include="..\PetClinicFileImplement\PetClinicFileImplement.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PetClinicBusinessLogic.Enums
+﻿namespace PetClinicBusinessLogic.Enums
 {
+    /// <summary>
+    /// Статус заказа
+    /// </summary> 
     public enum VisitStatus
     {
         Принят = 0,

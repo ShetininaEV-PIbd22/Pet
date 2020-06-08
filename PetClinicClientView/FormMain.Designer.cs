@@ -71,21 +71,21 @@
             // создатьЗаказToolStripMenuItem
             // 
             this.создатьЗаказToolStripMenuItem.Name = "создатьЗаказToolStripMenuItem";
-            this.создатьЗаказToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.создатьЗаказToolStripMenuItem.Text = "Создать заказ";
+            this.создатьЗаказToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.создатьЗаказToolStripMenuItem.Text = "Создать заявку на визит";
             this.создатьЗаказToolStripMenuItem.Click += new System.EventHandler(this.CreateVisitToolStripMenuItem_Click);
             // 
             // обновитьСписокToolStripMenuItem
             // 
             this.обновитьСписокToolStripMenuItem.Name = "обновитьСписокToolStripMenuItem";
-            this.обновитьСписокToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.обновитьСписокToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.обновитьСписокToolStripMenuItem.Text = "Обновить список";
             this.обновитьСписокToolStripMenuItem.Click += new System.EventHandler(this.RefreshVisitListToolStripMenuItem_Click);
             // 
             // изменитьДанныеToolStripMenuItem
             // 
             this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.UpdateDataToolStripMenuItem_Click);
             // 
@@ -99,7 +99,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.Text = "Ветеринарная клиника \"Айболит\"";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

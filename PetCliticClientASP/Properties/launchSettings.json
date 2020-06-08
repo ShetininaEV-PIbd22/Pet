@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:61555",
-      "sslPort": 44351
+      "applicationUrl": "http://localhost:51487",
+      "sslPort": 44390
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -12,12 +12,12 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/weatherforecast/get",
+      "launchUrl": "api/main/getservicelist",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "PetCliticClientASP": {
+    "PetClinicRestApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

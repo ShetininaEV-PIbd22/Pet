@@ -37,6 +37,8 @@
             this.buttonRegister = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -62,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 128);
+            this.label3.Location = new System.Drawing.Point(23, 104);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
@@ -88,7 +90,7 @@
             // 
             // textBoxClientFIO
             // 
-            this.textBoxClientFIO.Location = new System.Drawing.Point(106, 128);
+            this.textBoxClientFIO.Location = new System.Drawing.Point(106, 100);
             this.textBoxClientFIO.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxClientFIO.Name = "textBoxClientFIO";
             this.textBoxClientFIO.Size = new System.Drawing.Size(116, 23);
@@ -96,7 +98,7 @@
             // 
             // buttonRegister
             // 
-            this.buttonRegister.Location = new System.Drawing.Point(59, 181);
+            this.buttonRegister.Location = new System.Drawing.Point(60, 219);
             this.buttonRegister.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(145, 42);
@@ -108,7 +110,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 98);
+            this.label4.Location = new System.Drawing.Point(23, 138);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 15);
@@ -117,17 +119,37 @@
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(106, 99);
+            this.textBoxEmail.Location = new System.Drawing.Point(106, 138);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(116, 23);
             this.textBoxEmail.TabIndex = 5;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(23, 175);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 15);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Телефон:";
+            // 
+            // textBoxPhone
+            // 
+            this.textBoxPhone.Location = new System.Drawing.Point(106, 172);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(116, 23);
+            this.textBoxPhone.TabIndex = 5;
+            // 
             // FormUpdateData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 250);
+            this.ClientSize = new System.Drawing.Size(283, 273);
+            this.Controls.Add(this.textBoxPhone);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonRegister);
@@ -139,7 +161,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormUpdateData";
-            this.Text = "Регистрация";
+            this.Text = "Изменение данных клиента";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +178,7 @@
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxPhone;
     }
 }

@@ -1,25 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace PetClinicBusinessLogic.BindingModels
 {
+    /// <summary>
+    /// Данные от клиента, для создания заказа
+    /// </summary>
+    [DataContract]
     public class CreateVisitBindingModel
     {
+        [DataMember]
+        public int ServiceId { get; set; }
+        [DataMember]
         public int ClientId { set; get; }
         [DataMember]
         public string ClientFIO { set; get; }
         [DataMember]
-        //public int ServiseId { get; set; }
-        public Dictionary<int, (string, int)> Services { get; set; }
+        public string Animal { get; set; }
         [DataMember]
-        public String Animal { get; set; }
-        [DataMember]
-        public String AnimalName { get; set; }
+        public string AnimalName { get; set; }
         [DataMember]
         public int Count { get; set; }
         [DataMember]
         public decimal Sum { get; set; }
+        public DateTime DataVisit { get; set; }
     }
 }

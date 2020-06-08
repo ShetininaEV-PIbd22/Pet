@@ -1,11 +1,8 @@
 ﻿using PetClinicBusinessLogic.BindingModels;
+using PetClinicBusinessLogic.Interfaces;
 using PetClinicBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace PetClinicClientView
@@ -16,6 +13,7 @@ namespace PetClinicClientView
         {
             InitializeComponent();
         }
+
         private void FormCreateVisit_Load(object sender, EventArgs e)
         {
             try
@@ -38,7 +36,7 @@ namespace PetClinicClientView
                 try
                 {
                     int id = Convert.ToInt32(comboBoxProduct.SelectedValue);
-                    ServiceViewModel product = APIClient.GetRequest<ServiceViewModel>($"api/main/getservice?productId={id}");
+                    ServiceViewModel product = APIClient.GetRequest<ServiceViewModel>($"api/main/getship?productId={id}");
                     int count = Convert.ToInt32(textBoxCount.Text);
                     textBoxSum.Text = (count * product.Price).ToString();
                 }
@@ -54,7 +52,7 @@ namespace PetClinicClientView
             CalcSum();
         }
 
-        private void ComboBoxProduct_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBoxService_SelectedIndexChanged(object sender, EventArgs e)
         {
             CalcSum();
         }
@@ -66,25 +64,41 @@ namespace PetClinicClientView
                 MessageBox.Show("Заполните поле Количество", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            if (comboBoxProduct.SelectedValue == null)
+            if (string.IsNullOrEmpty(textBoxAnimal.Text))
             {
-                MessageBox.Show("Выберите изделие", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле Вид животного", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            if (string.IsNullOrEmpty(textBoxAnimalName.Text))
+            {
+                MessageBox.Show("Заполните поле Имя животного", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comboBoxProduct.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите услугу", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dateTimePickerVisit == null)
+            {
+                MessageBox.Show("Выберите дату визита", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
-                APIClient.PostRequest("api/main/createorder", new CreateVisitBindingModel
+                APIClient.PostRequest("api/main/createvisit", new CreateVisitBindingModel
                 {
                     ClientId = Program.Client.Id,
                     ClientFIO = Program.Client.FIO,
-                    //ServiseId = Convert.ToInt32(comboBoxProduct.SelectedValue),
+                    ServiceId = Convert.ToInt32(comboBoxProduct.SelectedValue),
+                    Animal=textBoxAnimal.Text,
+                    AnimalName=textBoxAnimalName.Text,
                     Count = Convert.ToInt32(textBoxCount.Text),
-                    Sum = Convert.ToDecimal(textBoxSum.Text)
+                    Sum = Convert.ToDecimal(textBoxSum.Text),
+                    DataVisit=dateTimePickerVisit.Value.Date
                 });
 
-                MessageBox.Show("Заказ создан", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Заявка создана", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
             }

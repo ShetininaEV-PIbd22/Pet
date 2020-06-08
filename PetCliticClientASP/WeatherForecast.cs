@@ -1,6 +1,6 @@
 using System;
 
-namespace PetCliticClientASP
+namespace PetClinicRestApi
 {
     public class WeatherForecast
     {
