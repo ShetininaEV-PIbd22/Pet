@@ -5,9 +5,6 @@ using System.Runtime.Serialization;
 
 namespace PetClinicBusinessLogic.ViewModels
 {
-    /// <summary>
-    /// Заказ
-    /// </summary>
     [DataContract]
     public class VisitViewModel
     {
@@ -49,6 +46,5 @@ namespace PetClinicBusinessLogic.ViewModels
         [DataMember]
         [DisplayName("Дата визита")]
         public DateTime DateVisit { get; set; }
-        
     }
 }

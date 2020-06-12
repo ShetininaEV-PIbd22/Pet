@@ -26,7 +26,8 @@ namespace PetClinicListImplement.Implements
             };
             foreach (var client in source.Clients)
             {
-                if (client.FIO == model.FIO && client.Id != model.Id)
+                if (client.Login == model.Login || client.Email== model.Email || client.Phone== client.Phone 
+                    && client.Id != model.Id)
                 {
                     throw new Exception("Уже есть компонент с таким названием");
                 }

@@ -18,5 +18,6 @@ namespace PetClinicDatabaseImplement
         public virtual DbSet<ServiceMedicine> ServiceMedicines { set; get; }
         public virtual DbSet<Visit> Visits { set; get; }
         public virtual DbSet<Client> Clients { set; get; }
+        public virtual DbSet<MessageInfo> MessageInfos { set; get; }
     }
 }

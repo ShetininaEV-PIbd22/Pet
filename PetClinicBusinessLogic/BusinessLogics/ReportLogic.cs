@@ -5,50 +5,44 @@ using PetClinicBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 
 namespace PetClinicBusinessLogic.BusinessLogics
 {
     public class ReportLogic
     {
-        private readonly IMedicineLogic medicineLogic;
         private readonly IServiceLogic serviceLogic;
         private readonly IVisitLogic visitLogic;
-        public ReportLogic(IServiceLogic serviceLogic, IMedicineLogic medicineLogic, IVisitLogic visitLogic)
+        public ReportLogic(IServiceLogic serviceLogic, IVisitLogic visitLogic)
         {
             this.serviceLogic = serviceLogic;
-            this.medicineLogic = medicineLogic;
             this.visitLogic = visitLogic;
-        }
-        public List<ReportServiceMedicineViewModel> GetServiceMedicine()
-        {
-            var medicines = medicineLogic.Read(null);
-            var services = serviceLogic.Read(null);
-            var list = new List<ReportServiceMedicineViewModel>();
-            foreach (var service in services)
-            {
-                    foreach (var medicine in medicines)
-                    {
-                        if (service.ServiceMedicines.ContainsKey(medicine.Id))
-                        {
-                            list.Add(new ReportServiceMedicineViewModel
-                            {
-                                ServiceName= service.ServiceName,
-                                MedicineName = medicine.MedicineName,
-                                Count = service.ServiceMedicines[medicine.Id].Item2
-                            });
-                        }
-
-                    }
-            }
-                return list;
         }
         public List<ReportVisitsViewModel> GetVisits(ReportBindingModel model)
         {
+            return visitLogic.Read(null)
+            .Where(rec => rec.ClientId == model.ClientId)
+            .Where(rec => rec.DateVisit.Date <= model.DateFrom.Value.Date)
+            .Where(rec => rec.DateVisit.Date >= model.DateTo.Value.Date)
+            .Select(x => new ReportVisitsViewModel
+            {
+                DateVisit = x.DateVisit,
+                ServiceName = x.ServiceName,
+                Animal = x.Animal,
+                AnimalName = x.AnimalName,
+                Count = x.Count,
+                Sum = x.Sum,
+                Status = x.Status
+            })
+            .ToList();
+            /*
             return visitLogic.Read(new VisitBindingModel
             {
                 DateFrom = model.DateFrom,
                 DateTo = model.DateTo
             })
+            .Where(rec => rec.ClientId == model.ClientId)
             .Select(x => new ReportVisitsViewModel
             {
                 DateVisit = x.DateVisit,
@@ -60,33 +54,65 @@ namespace PetClinicBusinessLogic.BusinessLogics
                 Status = x.Status
             })
             .ToList();
+            */
+        }
+        public List<ReportServiceViewModel> GetServices()
+        {
+            var list = new List<ReportServiceViewModel>();
+            var services = serviceLogic.Read(null);
+            foreach (var service in services)
+            {
+                list.Add(new ReportServiceViewModel
+                {
+                    ServiceName = service.ServiceName,
+                    Price = Convert.ToInt32(service.Price)
+                });
+            }
+            return list;
         }
         public void SaveServicesToWordFile(ReportBindingModel model)
         {
             SaveToWord.CreateDoc(new WordInfo
             {
-                FileName = model.FileName,
+                FileName = model.FileName, 
                 Title = "Список услуг",
-                Services = serviceLogic.Read(null)
+                Services = GetServices()
             });
         }
-        public void SaveOrdersToExcelFile(ReportBindingModel model)
+        public void SaveServicesToExcelFile(ReportBindingModel model)
         {
             SaveToExcel.CreateDoc(new ExcelInfo
             {
-                FileName = model.FileName,
-                Title = "Список визитов",
-                Visits = GetVisits(model)
+                FileName = model.FileName, 
+                Title = "Список услуг",
+                Services = GetServices()
             });
         }
-        public void SaveServiceMedicinesToPdfFile(ReportBindingModel model)
+        public void SaveVisitsToPdfFile(ReportBindingModel model)
         {
+            Console.WriteLine("ReportLogic="+ model.Visits.Count);
+            foreach (var l in model.Visits)
+            {
+                Console.WriteLine(l.DateVisit);
+            }
             SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = model.FileName,
-                Title = "Список услуг с необходимыми медикаментами",
-                ServiceMedicines = GetServiceMedicine()
+                Title = "Список визитов",
+                Visits = model.Visits//GetVisits(model)
             });
+        }
+        public void SendMessage(ReportBindingModel model)
+        {
+            MailAddress from = new MailAddress("labwork15kafis@gmail.com");
+            MailAddress to = new MailAddress(model.Email);
+            MailMessage message = new MailMessage(from, to);
+            message.Attachments.Add(new Attachment(model.FileName));
+            message.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("labwork15kafis@gmail.com", "passlab15");
+            smtp.EnableSsl = true;
+            smtp.Send(message);
         }
     }
 }

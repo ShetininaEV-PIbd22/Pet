@@ -8,13 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PetClinicBusinessLogic\PetClinicBusinessLogic.csproj" />
     <ProjectReference Include="..\PetClinicDatabaseImplement\PetClinicDatabaseImplement.csproj" />
-    <ProjectReference Include="..\PetClinicFileImplement\PetClinicFileImplement.csproj" />
   </ItemGroup>
 
 

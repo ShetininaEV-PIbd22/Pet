@@ -16,13 +16,14 @@ namespace PetClinicBusinessLogic.BusinessLogics
             DefineStyles(document);
 
             Section section = document.AddSection();
+            section.PageSetup.LeftMargin= "0,5cm";
             Paragraph paragraph = section.AddParagraph(info.Title);
-            paragraph.Format.SpaceAfter = "1cm";
+            paragraph.Format.SpaceAfter = "0,5cm";
             paragraph.Format.Alignment = ParagraphAlignment.Center;
             paragraph.Style = "NormalTitle";
 
             var table = document.LastSection.AddTable();
-            List<string> columns = new List<string> { "8cm", "6cm", "3cm" };
+            List<string> columns = new List<string> { "3cm", "3cm", "3cm", "3cm", "3cm", "3cm", "2,5cm" };
 
             foreach (var elem in columns)
             {
@@ -32,21 +33,25 @@ namespace PetClinicBusinessLogic.BusinessLogics
             CreateRow(new PdfRowParameters
             {
                 Table = table,
-                Texts = new List<string> { "Услуга", "Медикамент", "Количество" },
+                Texts = new List<string> { "Название услуги", "Количество процедур", "Вид животного", "Имя животного", "Стоимость визита", "Дата визита",  "Статус"},
                 Style = "NormalTitle",
                 ParagraphAlignment = ParagraphAlignment.Center
             });
 
-            foreach (var pc in info.ServiceMedicines)
+            foreach (var visit in info.Visits)
             {
                 CreateRow(new PdfRowParameters
                 {
                     Table = table,
                     Texts = new List<string>
                     {
-                        pc.ServiceName,
-                        pc.MedicineName,
-                        pc.Count.ToString()
+                        visit.ServiceName,
+                        visit.Count.ToString(),
+                        visit.Animal,
+                        visit.AnimalName,
+                        visit.Sum.ToString(),
+                        visit.DateVisit.ToString(),
+                        visit.Status.ToString()
                     },
                     Style = "Normal",
                     ParagraphAlignment = ParagraphAlignment.Left
@@ -65,7 +70,7 @@ namespace PetClinicBusinessLogic.BusinessLogics
         {
             Style style = document.Styles["Normal"];
             style.Font.Name = "Times New Roman";
-            style.Font.Size = 14;
+            style.Font.Size = 12;
             style = document.Styles.AddStyle("NormalTitle", "Normal");
             style.Font.Bold = true;
         }

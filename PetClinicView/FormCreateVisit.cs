@@ -122,7 +122,8 @@ namespace PetClinicView
                     Animal=textBoxAnimal.Text,
                     AnimalName=textBoxAnimalName.Text,
                     Count = Convert.ToInt32(textBoxCount.Text),
-                    Sum = Convert.ToDecimal(textBoxSum.Text)
+                    Sum = Convert.ToDecimal(textBoxSum.Text),
+                    DataVisit=dateTimePickerVisit.Value.Date
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -14,10 +14,16 @@ namespace PetClinicDatabaseImplement.Implements
         {
             using (var context = new PetClinicDatabase())
             {
-                Client client;
+                Client client = context.Clients.FirstOrDefault(rec => rec.Login == model.Login || rec.Phone == rec.Phone
+                || rec.Email == model.Email && rec.Id != model.Id);
+                if (client != null)
+                {
+                    throw new Exception("Уже есть такой клиент");
+                };
                 if (model.Id.HasValue)
                 {
-                    client = context.Clients.FirstOrDefault(rec => rec.Id == model.Id);
+                    client = context.Clients.FirstOrDefault(rec=> rec.Id == model.Id);
+                    
                     if (client == null)
                     {
                         throw new Exception("Клиент не найден.");

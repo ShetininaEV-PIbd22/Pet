@@ -9,6 +9,6 @@ namespace PetClinicBusinessLogic.HelperModels
     {
         public string FileName { get; set; }
         public string Title { get; set; }
-        public List<ServiceViewModel> Services { get; set; }
+        public List<ReportServiceViewModel> Services { get; set; }
     }
 }

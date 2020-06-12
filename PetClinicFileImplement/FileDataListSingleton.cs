@@ -18,13 +18,13 @@ namespace PetClinicFileImplement
         private readonly string VisitFileName = "Visit.xml";
         private readonly string ServiceFileName = "Service.xml";
         private readonly string ServiceMedicineFileName = "ServiceMedicine.xml";
-        //private readonly string ImplementerFileName = "Implementer.xml";
+        private readonly string MessageInfoFileName = "MessageInfoFileName.xml";
         public List<Medicine> Medicines { get; set; }
         public List<Client> Clients { get; set; }
         public List<Visit> Visits { get; set; }
         public List<Service> Services { get; set; }
         public List<ServiceMedicine> ServiceMedicines { get; set; }
-        //public List<Implementer> Implementers { get; set; }
+        public List<MessageInfo> MessageInfos { get; set; }
         private FileDataListSingleton()
         {
             Medicines = LoadMedicines();
@@ -32,7 +32,7 @@ namespace PetClinicFileImplement
             Visits = LoadVisits();
             Services = LoadServices();
             ServiceMedicines = LoadServiceMedicines();
-            //Implementers= LoadImplementers();
+            MessageInfos = LoadMessageInfos();
         }
         public static FileDataListSingleton GetInstance()
         {
@@ -49,31 +49,8 @@ namespace PetClinicFileImplement
             SaveVisits();
             SaveServices();
             SaveServiceMedicines();
-            //SaveImplementers();
+            SaveMessageInfos();
         }
-        /*
-        private List<Implementer> LoadImplementers()
-        {
-            var list = new List<Implementer>();
-            if (File.Exists(ImplementerFileName))
-            {
-                XDocument xDocument = XDocument.Load(ImplementerFileName);
-                var xElements = xDocument.Root.Elements("Implementer").ToList();
-
-                foreach (var elem in xElements)
-                {
-                    list.Add(new Implementer
-                    {
-                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        ImplementerFIO = elem.Element("ImplementerFIO").Value,
-                        WorkingTime = Convert.ToInt32(elem.Element("WorkingTime").Value),
-                        PauseTime = Convert.ToInt32(elem.Element("PauseTime").Value)
-                    });
-                }
-            }
-            return list;
-        }
-        */
         private List<Medicine> LoadMedicines()
         {
             var list = new List<Medicine>();
@@ -213,25 +190,31 @@ namespace PetClinicFileImplement
                 xDocument.Save(ClientFileName);
             }
         }
-        /*
-        private void SaveImplementers()
+        private List<MessageInfo> LoadMessageInfos()
         {
-            if (Implementers != null)
+            var list = new List<MessageInfo>();
+
+            if (File.Exists(MessageInfoFileName))
             {
-                var xElement = new XElement("Implementers");
-                foreach (var implementer in Implementers)
+                XDocument xDocument = XDocument.Load(MessageInfoFileName);
+                var xElements = xDocument.Root.Elements("MessageInfo").ToList();
+
+                foreach (var elem in xElements)
                 {
-                    xElement.Add(new XElement("Implementer",
-                    new XAttribute("Id", implementer.Id),
-                    new XElement("ImplementerFIO", implementer.ImplementerFIO),
-                    new XElement("WorkingTime ", implementer.WorkingTime),
-                    new XElement("PauseTime", implementer.PauseTime)));
+                    list.Add(new MessageInfo
+                    {
+                        MessageId = elem.Attribute("MessageId").Value,
+                        ClientId = Convert.ToInt32(elem.Element("ClientId").Value),
+                        SenderName = elem.Element("SenderName").Value,
+                        DateDelivery = Convert.ToDateTime(elem.Element("DateDelivery").Value),
+                        Subject = elem.Element("Subject").Value,
+                        Body = elem.Element("Body").Value
+                    });
                 }
-                XDocument xDocument = new XDocument(xElement);
-                xDocument.Save(ImplementerFileName);
             }
+
+            return list;
         }
-        */
         private void SaveVisits()
         {
             if (Visits != null)
@@ -285,6 +268,27 @@ namespace PetClinicFileImplement
                 }
                 XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(ServiceMedicineFileName);
+            }
+        }
+        private void SaveMessageInfos()
+        {
+            if (MessageInfos != null)
+            {
+                var xElement = new XElement("MessageInfoes");
+
+                foreach (var messageInfo in MessageInfos)
+                {
+                    xElement.Add(new XElement("MessageInfo",
+                    new XAttribute("Id", messageInfo.MessageId),
+                    new XElement("ClientId", messageInfo.ClientId),
+                    new XElement("SenderName", messageInfo.SenderName),
+                    new XElement("DateDelivery", messageInfo.DateDelivery),
+                    new XElement("Subject", messageInfo.Subject),
+                    new XElement("Body", messageInfo.Body)));
+                }
+
+                XDocument xDocument = new XDocument(xElement);
+                xDocument.Save(MessageInfoFileName);
             }
         }
     }

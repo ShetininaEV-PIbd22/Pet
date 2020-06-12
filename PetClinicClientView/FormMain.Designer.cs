@@ -3,12 +3,12 @@
     partial class FormMain
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,8 +23,8 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -34,6 +34,9 @@
             this.создатьЗаказToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обновитьСписокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокВизитовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокУслугToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +53,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.менюToolStripMenuItem});
+            this.менюToolStripMenuItem,
+            this.отчетыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -89,6 +93,29 @@
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.UpdateDataToolStripMenuItem_Click);
             // 
+            // отчетыToolStripMenuItem
+            // 
+            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.списокВизитовToolStripMenuItem,
+            this.списокУслугToolStripMenuItem});
+            this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.отчетыToolStripMenuItem.Text = "Отчеты";
+            // 
+            // списокВизитовToolStripMenuItem
+            // 
+            this.списокВизитовToolStripMenuItem.Name = "списокВизитовToolStripMenuItem";
+            this.списокВизитовToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.списокВизитовToolStripMenuItem.Text = "Список визитов";
+            this.списокВизитовToolStripMenuItem.Click += new System.EventHandler(this.ReportVisitsToolStripMenuItem_Click);
+            //
+            //this.списокУслугToolStripMenuItem
+            //
+            this.списокУслугToolStripMenuItem.Name = "списокУслугToolStripMenuItem";
+            this.списокУслугToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.списокУслугToolStripMenuItem.Text = "Список услуг";
+            this.списокУслугToolStripMenuItem.Click += new System.EventHandler(this.ReportServicesToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -112,9 +139,11 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem менюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьЗаказToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокВизитовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокУслугToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обновитьСписокToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьДанныеToolStripMenuItem;
     }
 }
-

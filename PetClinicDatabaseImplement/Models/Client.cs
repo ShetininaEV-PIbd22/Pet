@@ -27,5 +27,6 @@ namespace PetClinicDatabaseImplement.Models
 
         [ForeignKey("ClientId")]
         public virtual List<Visit> Visits { set; get; }
+        public virtual List<MessageInfo> MessageInfos { set; get; }
     }
 }

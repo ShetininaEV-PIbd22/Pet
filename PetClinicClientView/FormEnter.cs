@@ -23,11 +23,11 @@ namespace PetClinicClientView
         }
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBoxEmail.Text) && !string.IsNullOrEmpty(textBoxPassword.Text))
+            if (!string.IsNullOrEmpty(textBoxLogin.Text) && !string.IsNullOrEmpty(textBoxPassword.Text))
             {
                 try
                 {
-                    Program.Client = APIClient.GetRequest<ClientViewModel>($"api/client/login?login={textBoxEmail.Text}"+$"&password={textBoxPassword.Text}");
+                    Program.Client = APIClient.GetRequest<ClientViewModel>($"api/client/login?login={textBoxLogin.Text}" + $"&password={textBoxPassword.Text}");
                     Close();
                 }
                 catch (Exception ex)
@@ -42,3 +42,4 @@ namespace PetClinicClientView
         }
     }
 }
+

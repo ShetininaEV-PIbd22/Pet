@@ -26,6 +26,8 @@ namespace PetClinicBusinessLogic.BusinessLogics
             {
                 ServiceId = model.ServiceId,
                 ClientId = model.ClientId,
+                Animal=model.Animal,
+                AnimalName=model.AnimalName,
                 Count = model.Count,
                 Sum = model.Sum,
                 DateVisit =model.DataVisit,

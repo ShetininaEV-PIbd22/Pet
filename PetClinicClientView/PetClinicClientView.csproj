@@ -4,10 +4,22 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <UserSecretsId>697b95d2-85a6-46bd-af66-3888f8aa5431</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.ReportViewer" Version="3.0.0.200103" />
+    <PackageReference Include="MailKit" Version="2.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.ReportViewer.Runtime.WinForms" Version="12.0.2402.15" />
+    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="OpenPop" Version="2.0.6.2" />
+    <PackageReference Include="OpenPop.NET" Version="2.0.6.1120" />
+    <PackageReference Include="Pop3Client" Version="3.0.6474.16527" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="System.Net.Pop3" Version="0.1.4" />
+    <PackageReference Include="Unity" Version="5.11.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,26 +28,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="FormCreateVisit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormCreateVisit.Designer.cs">
-      <DependentUpon>FormCreateVisit.cs</DependentUpon>
-    </Compile>
-    <Compile Update="FormUpdateData.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="FormUpdateData.cs" />
     <Compile Update="FormUpdateData.Designer.cs">
       <DependentUpon>FormUpdateData.cs</DependentUpon>
     </Compile>
-    <Compile Update="FormRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="FormRegister.cs" />
     <Compile Update="FormRegister.Designer.cs">
       <DependentUpon>FormRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Update="FormEnter.cs">
-      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 

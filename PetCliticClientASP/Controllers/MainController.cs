@@ -19,11 +19,14 @@ namespace PetClinicRestApi.Controllers
         private readonly IVisitLogic _order;
         private readonly IServiceLogic _product;
         private readonly MainLogic _main;
-        public MainController(IVisitLogic order, IServiceLogic product, MainLogic main)
+        private ReportLogic _report;
+
+        public MainController(IVisitLogic order, IServiceLogic product, MainLogic main, ReportLogic report)
         {
             _order = order;
             _product = product;
             _main = main;
+             _report = report;
         }
         [HttpGet]
         public List<ServiceModel> GetServiceList() => _product.Read(null)?.Select(rec => Convert(rec)).ToList();
@@ -33,6 +36,8 @@ namespace PetClinicRestApi.Controllers
         public List<VisitViewModel> GetVisits(int clientId) => _order.Read(new VisitBindingModel { ClientId = clientId });
         [HttpPost]
         public void CreateVisit(CreateVisitBindingModel model) => _main.CreateVisit(model);
+        public List<VisitViewModel> GetVisitsList() => _order.Read(null).ToList();
+        
         private ServiceModel Convert(ServiceViewModel model)
         {
             if (model == null) return null;
@@ -43,5 +48,14 @@ namespace PetClinicRestApi.Controllers
                 Price = model.Price
             };
         }
+        [HttpPost]
+        public void SendMessage(ReportBindingModel model) => _report.SendMessage(model);
+        [HttpPost]
+        public void SaveServicesToWordFile(ReportBindingModel model) => _report.SaveServicesToWordFile(model);
+        [HttpPost]
+        public void SaveServicesToExcelFile(ReportBindingModel model) => _report.SaveServicesToExcelFile(model);
+        [HttpPost]
+        [Obsolete]
+        public void SaveVisitsToPdfFile(ReportBindingModel model) => _report.SaveVisitsToPdfFile(model);
     }
 }

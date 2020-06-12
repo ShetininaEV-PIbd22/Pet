@@ -4,9 +4,6 @@ using System.Runtime.Serialization;
 
 namespace PetClinicBusinessLogic.BindingModels
 {
-    /// <summary>     
-    /// Заказ     
-    /// </summary>   
     public class VisitBindingModel
     {
         public int? Id { get; set; }

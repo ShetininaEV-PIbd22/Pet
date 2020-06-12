@@ -145,11 +145,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\MessageInfoLogic.cs" />
     <Compile Include="Migrations\20200608072109_InitialCreate.cs" />
     <Compile Include="Migrations\20200608072109_InitialCreate.designer.cs">
       <DependentUpon>20200608072109_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200611185617_CreateMessageInfo.cs" />
+    <Compile Include="Migrations\20200611185617_CreateMessageInfo.designer.cs">
+      <DependentUpon>20200611185617_CreateMessageInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PetClinicDatabaseModelSnapshot.cs" />
+    <Compile Include="Models\MessageInfo.cs" />
     <Compile Include="PetClinicDatabase.cs" />
     <Compile Include="Implements\ClientLogic.cs" />
     <Compile Include="Implements\MedicineLogic.cs" />

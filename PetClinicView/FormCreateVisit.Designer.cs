@@ -42,6 +42,8 @@
             this.textBoxAnimal = new System.Windows.Forms.TextBox();
             this.labelAnimalName = new System.Windows.Forms.Label();
             this.textBoxAnimalName = new System.Windows.Forms.TextBox();
+            this.labelVisit = new System.Windows.Forms.Label();
+            this.dateTimePickerVisit = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labelService
@@ -97,7 +99,7 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(27, 239);
+            this.buttonCreate.Location = new System.Drawing.Point(15, 277);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(83, 32);
             this.buttonCreate.TabIndex = 6;
@@ -107,7 +109,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(234, 239);
+            this.buttonCancel.Location = new System.Drawing.Point(245, 277);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(94, 32);
             this.buttonCancel.TabIndex = 7;
@@ -166,11 +168,29 @@
             this.textBoxAnimalName.Size = new System.Drawing.Size(213, 20);
             this.textBoxAnimalName.TabIndex = 13;
             // 
+            // labelVisit
+            // 
+            this.labelVisit.AutoSize = true;
+            this.labelVisit.Location = new System.Drawing.Point(14, 236);
+            this.labelVisit.Name = "labelVisit";
+            this.labelVisit.Size = new System.Drawing.Size(74, 13);
+            this.labelVisit.TabIndex = 14;
+            this.labelVisit.Text = "Дата визита:";
+            // 
+            // dateTimePickerVisit
+            // 
+            this.dateTimePickerVisit.Location = new System.Drawing.Point(115, 236);
+            this.dateTimePickerVisit.Name = "dateTimePickerVisit";
+            this.dateTimePickerVisit.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerVisit.TabIndex = 15;
+            // 
             // FormCreateVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 283);
+            this.ClientSize = new System.Drawing.Size(388, 321);
+            this.Controls.Add(this.dateTimePickerVisit);
+            this.Controls.Add(this.labelVisit);
             this.Controls.Add(this.textBoxAnimalName);
             this.Controls.Add(this.labelAnimalName);
             this.Controls.Add(this.textBoxAnimal);
@@ -209,5 +229,7 @@
         private System.Windows.Forms.TextBox textBoxAnimal;
         private System.Windows.Forms.Label labelAnimalName;
         private System.Windows.Forms.TextBox textBoxAnimalName;
+        private System.Windows.Forms.Label labelVisit;
+        private System.Windows.Forms.DateTimePicker dateTimePickerVisit;
     }
 }

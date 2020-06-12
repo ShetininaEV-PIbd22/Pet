@@ -14,6 +14,7 @@ namespace PetClinicListImplement
         public List<Service> Services { get; set; }
 
         public List<ServiceMedicines> ServiceMedicines { get; set; }
+        public List<MessageInfo> MessageInfos { get; set; }
 
         private DataListSingleton() 
         {
@@ -22,6 +23,7 @@ namespace PetClinicListImplement
             Visits = new List<Visit>();
             Services = new List<Service>();
             ServiceMedicines = new List<ServiceMedicines>();
+            MessageInfos = new List<MessageInfo>();
         }
 
         public static DataListSingleton GetInstance()

@@ -25,7 +25,7 @@ namespace PetClinicView
                 {
                     try
                     {
-                        logic.SaveServiceMedicinesToPdfFile(new ReportBindingModel
+                        logic.SaveVisitsToPdfFile(new ReportBindingModel
                         {
                             FileName = dialog.FileName,
                         });

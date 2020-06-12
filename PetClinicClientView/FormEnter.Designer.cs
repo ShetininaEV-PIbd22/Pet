@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelEmail = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonRegister = new System.Windows.Forms.Button();
@@ -39,41 +39,46 @@
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(20, 21);
+            this.labelEmail.Location = new System.Drawing.Point(23, 24);
+            this.labelEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(41, 13);
+            this.labelEmail.Size = new System.Drawing.Size(44, 15);
             this.labelEmail.TabIndex = 0;
             this.labelEmail.Text = "Логин:";
             // 
-            // textBoxEmail
+            // textBoxLogin
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(74, 18);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(200, 20);
-            this.textBoxEmail.TabIndex = 1;
+            this.textBoxLogin.Location = new System.Drawing.Point(86, 21);
+            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(233, 23);
+            this.textBoxLogin.TabIndex = 1;
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(20, 64);
+            this.labelPassword.Location = new System.Drawing.Point(23, 74);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(48, 13);
+            this.labelPassword.Size = new System.Drawing.Size(52, 15);
             this.labelPassword.TabIndex = 2;
             this.labelPassword.Text = "Пароль:";
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(74, 61);
+            this.textBoxPassword.Location = new System.Drawing.Point(86, 70);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(200, 20);
+            this.textBoxPassword.Size = new System.Drawing.Size(233, 23);
             this.textBoxPassword.TabIndex = 3;
             // 
             // buttonRegister
             // 
-            this.buttonRegister.Location = new System.Drawing.Point(43, 106);
+            this.buttonRegister.Location = new System.Drawing.Point(50, 122);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(100, 23);
+            this.buttonRegister.Size = new System.Drawing.Size(117, 27);
             this.buttonRegister.TabIndex = 4;
             this.buttonRegister.Text = "Регистрация";
             this.buttonRegister.UseVisualStyleBackColor = true;
@@ -81,9 +86,10 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(149, 106);
+            this.buttonLogin.Location = new System.Drawing.Point(174, 122);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(100, 23);
+            this.buttonLogin.Size = new System.Drawing.Size(117, 27);
             this.buttonLogin.TabIndex = 5;
             this.buttonLogin.Text = "Вход";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -91,15 +97,16 @@
             // 
             // FormEnter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 150);
+            this.ClientSize = new System.Drawing.Size(350, 173);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.labelPassword);
-            this.Controls.Add(this.textBoxEmail);
+            this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.labelEmail);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormEnter";
             this.Text = "Вход";
             this.ResumeLayout(false);
@@ -110,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonRegister;

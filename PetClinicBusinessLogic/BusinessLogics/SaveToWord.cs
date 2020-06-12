@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using PetClinicBusinessLogic.HelperModels;
-using DocumentFormat.OpenXml;
+﻿using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using PetClinicBusinessLogic.HelperModels;
+using System.Collections.Generic;
 
 namespace PetClinicBusinessLogic.BusinessLogics
 {
@@ -29,12 +29,22 @@ namespace PetClinicBusinessLogic.BusinessLogics
                         JustificationValues = JustificationValues.Center
                     }
                 }));
+                docBody.AppendChild(CreateParagraph(new WordParagraph
+                {
+                    Texts = new List<string> {"Название услуги                     Стоимость" },
+                    TextProperties = new WordParagraphProperties
+                    {
+                        Bold = true,
+                        Size = "24",
+                        JustificationValues = JustificationValues.Both
+                    }
+                }));
                 foreach (var product in info.Services)
                 {
                     docBody.AppendChild(CreateParagraph(new WordParagraph
                     {
                         
-                        Texts = new List<string> { product.ServiceName, " - " + product.Price.ToString() },
+                        Texts = new List<string> { product.ServiceName, "                                       " + product.Price.ToString() },
                         TextProperties = new WordParagraphProperties
                         {
                             Bold = true,

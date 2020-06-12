@@ -18,6 +18,7 @@ namespace PetClinicClientView
 
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(textBoxLogin.Text) && !string.IsNullOrEmpty(textBoxPassword.Text) 
                 && !string.IsNullOrEmpty(textBoxClientFIO.Text) && !string.IsNullOrEmpty(textBoxEmail.Text) && !string.IsNullOrEmpty(textBoxPhone.Text))
             {

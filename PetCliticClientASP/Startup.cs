@@ -1,18 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using PetClinicBusinessLogic.Interfaces;
 using PetClinicBusinessLogic.BusinessLogics;
 using PetClinicDatabaseImplement.Implements;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace PetClinicRestApi
 {
@@ -28,10 +24,13 @@ namespace PetClinicRestApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers().AddNewtonsoftJson();
             services.AddTransient<IClientLogic, ClientLogic>();
             services.AddTransient<IVisitLogic, VisitLogic>();
             services.AddTransient<IServiceLogic, ServiceLogic>();
+            services.AddTransient<IMessageInfoLogic, MessageInfoLogic>();
             services.AddTransient<MainLogic>();
+            services.AddTransient<ReportLogic>();
             services.AddControllers();
         }
 

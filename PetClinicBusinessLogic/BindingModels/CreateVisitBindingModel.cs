@@ -23,6 +23,7 @@ namespace PetClinicBusinessLogic.BindingModels
         public int Count { get; set; }
         [DataMember]
         public decimal Sum { get; set; }
+        [DataMember]
         public DateTime DataVisit { get; set; }
     }
 }
