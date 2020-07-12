@@ -145,6 +145,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\BackUpLogic.cs" />
     <Compile Include="Implements\MessageInfoLogic.cs" />
     <Compile Include="Migrations\20200608072109_InitialCreate.cs" />
     <Compile Include="Migrations\20200608072109_InitialCreate.designer.cs">

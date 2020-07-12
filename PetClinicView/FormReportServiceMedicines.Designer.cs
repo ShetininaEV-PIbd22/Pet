@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportServiceMedicines));
             this.buttonToPdf = new System.Windows.Forms.Button();
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // buttonToPdf
             // 
+            this.buttonToPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonToPdf.Location = new System.Drawing.Point(606, 1);
             this.buttonToPdf.Name = "buttonToPdf";
             this.buttonToPdf.Size = new System.Drawing.Size(75, 23);
@@ -44,11 +48,14 @@
             // 
             // reportViewer
             // 
+            this.reportViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewer.LocalReport.ReportEmbeddedResource = "PetClinicView.Report.rdlc";
-            this.reportViewer.Location = new System.Drawing.Point(5, 30);
+            this.reportViewer.Location = new System.Drawing.Point(2, 30);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
-            this.reportViewer.Size = new System.Drawing.Size(676, 318);
+            this.reportViewer.Size = new System.Drawing.Size(689, 308);
             this.reportViewer.TabIndex = 6;
             this.reportViewer.Load += new System.EventHandler(this.reportViewer_Load);
             // 
@@ -59,8 +66,9 @@
             this.ClientSize = new System.Drawing.Size(693, 350);
             this.Controls.Add(this.reportViewer);
             this.Controls.Add(this.buttonToPdf);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormReportServiceMedicines";
-            this.Text = "Компоненты по кораблям";
+            this.Text = "Услуги с необходимыми медикаментами";
             this.Load += new System.EventHandler(this.FormReportServiceMedicines_Load);
             this.ResumeLayout(false);
 

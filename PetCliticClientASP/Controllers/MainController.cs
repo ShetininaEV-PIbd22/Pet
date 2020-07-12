@@ -19,9 +19,9 @@ namespace PetClinicRestApi.Controllers
         private readonly IVisitLogic _order;
         private readonly IServiceLogic _product;
         private readonly MainLogic _main;
-        private ReportLogic _report;
+        private ReportClientLogic _report;
 
-        public MainController(IVisitLogic order, IServiceLogic product, MainLogic main, ReportLogic report)
+        public MainController(IVisitLogic order, IServiceLogic product, MainLogic main, ReportClientLogic report)
         {
             _order = order;
             _product = product;

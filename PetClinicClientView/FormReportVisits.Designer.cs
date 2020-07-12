@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportVisits));
             this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.buttonToPdf = new System.Windows.Forms.Button();
@@ -40,23 +41,26 @@
             // 
             // dateTimePickerTo
             // 
-            this.dateTimePickerTo.Location = new System.Drawing.Point(29, 3);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(34, 3);
+            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(118, 20);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(137, 23);
             this.dateTimePickerTo.TabIndex = 2;
             // 
             // dateTimePickerFrom
             // 
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(177, 3);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(206, 3);
+            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(122, 20);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(142, 23);
             this.dateTimePickerFrom.TabIndex = 3;
             // 
             // buttonToPdf
             // 
-            this.buttonToPdf.Location = new System.Drawing.Point(606, 1);
+            this.buttonToPdf.Location = new System.Drawing.Point(707, 1);
+            this.buttonToPdf.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonToPdf.Name = "buttonToPdf";
-            this.buttonToPdf.Size = new System.Drawing.Size(75, 23);
+            this.buttonToPdf.Size = new System.Drawing.Size(88, 27);
             this.buttonToPdf.TabIndex = 5;
             this.buttonToPdf.Text = "В pdf";
             this.buttonToPdf.UseVisualStyleBackColor = true;
@@ -65,44 +69,48 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 8);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 13);
+            this.label1.Size = new System.Drawing.Size(15, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "С";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(153, 10);
+            this.label2.Location = new System.Drawing.Point(178, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.Size = new System.Drawing.Size(21, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "по";
             // 
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(3, 29);
+            this.dataGridView.Location = new System.Drawing.Point(4, 33);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(688, 317);
+            this.dataGridView.Size = new System.Drawing.Size(803, 366);
             this.dataGridView.TabIndex = 8;
             // 
             // buttonReport
             // 
-            this.buttonReport.Location = new System.Drawing.Point(498, 3);
+            this.buttonReport.Location = new System.Drawing.Point(581, 3);
+            this.buttonReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.buttonReport.Name = "buttonReport";
-            this.buttonReport.Size = new System.Drawing.Size(75, 23);
+            this.buttonReport.Size = new System.Drawing.Size(88, 27);
             this.buttonReport.TabIndex = 9;
             this.buttonReport.Text = "На форму";
             this.buttonReport.UseVisualStyleBackColor = true;
             this.buttonReport.Click += new System.EventHandler(this.buttonReport_Click);
             // 
-            // Form1
+            // FormReportVisits
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 350);
+            this.ClientSize = new System.Drawing.Size(808, 404);
             this.Controls.Add(this.buttonReport);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label2);
@@ -110,6 +118,8 @@
             this.Controls.Add(this.buttonToPdf);
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.dateTimePickerTo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormReportVisits";
             this.Text = "Визиты в ветеринарную клинику \"Айболит\"";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

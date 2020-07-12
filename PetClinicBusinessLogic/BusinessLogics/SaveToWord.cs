@@ -12,7 +12,7 @@ namespace PetClinicBusinessLogic.BusinessLogics
         /// Создание документа
         /// </summary>
         /// <param name="info"></param>
-        public static void CreateDoc(WordInfo info)
+        public static void CreateDocForServices(WordInfo info)
         {
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
             {
@@ -58,7 +58,52 @@ namespace PetClinicBusinessLogic.BusinessLogics
                 wordDocument.MainDocumentPart.Document.Save();
             }
         }
+        public static void CreateDocForMedicines(WordInfo info)
+        {
+            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
+            {
+                MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
+                mainPart.Document = new Document();
+                Body docBody = mainPart.Document.AppendChild(new Body());
+                docBody.AppendChild(CreateParagraph(new WordParagraph
+                {
+                    Texts = new List<string> { info.Title },
+                    TextProperties = new WordParagraphProperties
+                    {
+                        Bold = true,
+                        Size = "24",
+                        JustificationValues = JustificationValues.Center
+                    }
+                }));
+                docBody.AppendChild(CreateParagraph(new WordParagraph
+                {
+                    Texts = new List<string> { "Название медикамента" },
+                    TextProperties = new WordParagraphProperties
+                    {
+                        Bold = true,
+                        Size = "24",
+                        JustificationValues = JustificationValues.Both
+                    }
+                }));
+                foreach (var medicine in info.Medicines)
+                {
+                    docBody.AppendChild(CreateParagraph(new WordParagraph
+                    {
 
+                        Texts = new List<string> { medicine.MedicineName},
+                        TextProperties = new WordParagraphProperties
+                        {
+                            Bold = true,
+                            Size = "24",
+                            JustificationValues = JustificationValues.Both
+                        }
+                    }));
+                }
+
+                docBody.AppendChild(CreateSectionProperties());
+                wordDocument.MainDocumentPart.Document.Save();
+            }
+        }
         private static SectionProperties CreateSectionProperties()
         {
             SectionProperties properties = new SectionProperties();

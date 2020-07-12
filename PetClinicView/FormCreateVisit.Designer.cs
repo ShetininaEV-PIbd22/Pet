@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateVisit));
             this.labelService = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
             this.labelSum = new System.Windows.Forms.Label();
@@ -48,6 +49,9 @@
             // 
             // labelService
             // 
+            this.labelService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelService.AutoSize = true;
             this.labelService.Location = new System.Drawing.Point(12, 21);
             this.labelService.Name = "labelService";
@@ -57,6 +61,9 @@
             // 
             // labelCount
             // 
+            this.labelCount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCount.AutoSize = true;
             this.labelCount.Location = new System.Drawing.Point(10, 57);
             this.labelCount.Name = "labelCount";
@@ -66,6 +73,9 @@
             // 
             // labelSum
             // 
+            this.labelSum.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSum.AutoSize = true;
             this.labelSum.Location = new System.Drawing.Point(12, 198);
             this.labelSum.Name = "labelSum";
@@ -75,6 +85,9 @@
             // 
             // comboBoxService
             // 
+            this.comboBoxService.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxService.FormattingEnabled = true;
             this.comboBoxService.Location = new System.Drawing.Point(119, 21);
             this.comboBoxService.Name = "comboBoxService";
@@ -84,6 +97,9 @@
             // 
             // textBoxSum
             // 
+            this.textBoxSum.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSum.Location = new System.Drawing.Point(115, 198);
             this.textBoxSum.Name = "textBoxSum";
             this.textBoxSum.Size = new System.Drawing.Size(213, 20);
@@ -91,6 +107,9 @@
             // 
             // textBoxCount
             // 
+            this.textBoxCount.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCount.Location = new System.Drawing.Point(119, 57);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(209, 20);
@@ -99,6 +118,9 @@
             // 
             // buttonCreate
             // 
+            this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCreate.Location = new System.Drawing.Point(15, 277);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(83, 32);
@@ -109,6 +131,9 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.Location = new System.Drawing.Point(245, 277);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(94, 32);
@@ -119,6 +144,9 @@
             // 
             // labelClient
             // 
+            this.labelClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelClient.AutoSize = true;
             this.labelClient.Location = new System.Drawing.Point(12, 96);
             this.labelClient.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -129,6 +157,9 @@
             // 
             // comboBoxClient
             // 
+            this.comboBoxClient.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxClient.FormattingEnabled = true;
             this.comboBoxClient.Location = new System.Drawing.Point(119, 96);
             this.comboBoxClient.Margin = new System.Windows.Forms.Padding(2);
@@ -138,6 +169,9 @@
             // 
             // labelAnimal
             // 
+            this.labelAnimal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAnimal.AutoSize = true;
             this.labelAnimal.Location = new System.Drawing.Point(10, 131);
             this.labelAnimal.Name = "labelAnimal";
@@ -147,6 +181,9 @@
             // 
             // textBoxAnimal
             // 
+            this.textBoxAnimal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAnimal.Location = new System.Drawing.Point(115, 131);
             this.textBoxAnimal.Name = "textBoxAnimal";
             this.textBoxAnimal.Size = new System.Drawing.Size(213, 20);
@@ -154,6 +191,9 @@
             // 
             // labelAnimalName
             // 
+            this.labelAnimalName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAnimalName.AutoSize = true;
             this.labelAnimalName.Location = new System.Drawing.Point(10, 171);
             this.labelAnimalName.Name = "labelAnimalName";
@@ -163,6 +203,9 @@
             // 
             // textBoxAnimalName
             // 
+            this.textBoxAnimalName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxAnimalName.Location = new System.Drawing.Point(115, 164);
             this.textBoxAnimalName.Name = "textBoxAnimalName";
             this.textBoxAnimalName.Size = new System.Drawing.Size(213, 20);
@@ -170,6 +213,9 @@
             // 
             // labelVisit
             // 
+            this.labelVisit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelVisit.AutoSize = true;
             this.labelVisit.Location = new System.Drawing.Point(14, 236);
             this.labelVisit.Name = "labelVisit";
@@ -179,6 +225,9 @@
             // 
             // dateTimePickerVisit
             // 
+            this.dateTimePickerVisit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePickerVisit.Location = new System.Drawing.Point(115, 236);
             this.dateTimePickerVisit.Name = "dateTimePickerVisit";
             this.dateTimePickerVisit.Size = new System.Drawing.Size(200, 20);
@@ -205,6 +254,7 @@
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelService);
             this.Controls.Add(this.labelClient);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCreateVisit";
             this.Text = "Визит в ветиринарную клинику \"Айболит\"";
             this.Load += new System.EventHandler(this.FormCreateVisit_Load);

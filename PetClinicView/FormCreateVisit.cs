@@ -14,14 +14,14 @@ namespace PetClinicView
         [Dependency]
         public new IUnityContainer Container { get; set; }
 
-        private readonly IServiceLogic logicP;
+        private readonly IServiceLogic logicS;
         private readonly IClientLogic logicC;
         private readonly MainLogic logicM;
 
-        public FormCreateVisit(IServiceLogic logicP, IClientLogic logicC, MainLogic logicM)
+        public FormCreateVisit(IServiceLogic logicS, IClientLogic logicC, MainLogic logicM)
         {
             InitializeComponent();
-            this.logicP = logicP;
+            this.logicS = logicS;
             this.logicC = logicC;
             this.logicM = logicM;
         }
@@ -30,7 +30,7 @@ namespace PetClinicView
         {
             try
             { //  Логика загрузки списка в выпадающий список
-                List<ServiceViewModel> list = logicP.Read(null);
+                List<ServiceViewModel> list = logicS.Read(null);
                 if (list != null)
                 {
                     comboBoxService.DisplayMember = "ServiceName";
@@ -60,9 +60,9 @@ namespace PetClinicView
                 try
                 {
                     int id = Convert.ToInt32(comboBoxService.SelectedValue);
-                    ServiceViewModel product = logicP.Read(new ServiceBindingModel { Id = id })?[0];
+                    ServiceViewModel service = logicS.Read(new ServiceBindingModel { Id = id })?[0];
                     int count = Convert.ToInt32(textBoxCount.Text);
-                    textBoxSum.Text = (count * product?.Price ?? 0).ToString();
+                    textBoxSum.Text = (count * service?.Price ?? 0).ToString();
                 }
                 catch (Exception ex)
                 {

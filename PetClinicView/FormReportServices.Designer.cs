@@ -1,4 +1,4 @@
-﻿namespace PetClinicClientView
+﻿namespace PetClinicView
 {
     partial class FormReportServices
     {
@@ -36,12 +36,14 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.Location = new System.Drawing.Point(14, 14);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.richTextBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(392, 108);
+            this.richTextBox1.Size = new System.Drawing.Size(337, 94);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "Выберите формат, в котором вы бы хотели получить список услуг ветеринарной клиник" +
     "и \"Айболит\". Отчет, в выбранном формете, придет на почту, указанную при регистра" +
@@ -49,10 +51,12 @@
             // 
             // buttonExcel
             // 
-            this.buttonExcel.Location = new System.Drawing.Point(312, 138);
-            this.buttonExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExcel.Location = new System.Drawing.Point(267, 120);
             this.buttonExcel.Name = "buttonExcel";
-            this.buttonExcel.Size = new System.Drawing.Size(96, 47);
+            this.buttonExcel.Size = new System.Drawing.Size(82, 41);
             this.buttonExcel.TabIndex = 1;
             this.buttonExcel.Text = "Excel формат";
             this.buttonExcel.UseVisualStyleBackColor = true;
@@ -60,10 +64,12 @@
             // 
             // buttonWord
             // 
-            this.buttonWord.Location = new System.Drawing.Point(14, 137);
-            this.buttonWord.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonWord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonWord.Location = new System.Drawing.Point(12, 119);
             this.buttonWord.Name = "buttonWord";
-            this.buttonWord.Size = new System.Drawing.Size(88, 48);
+            this.buttonWord.Size = new System.Drawing.Size(75, 42);
             this.buttonWord.TabIndex = 2;
             this.buttonWord.Text = "Word формат ";
             this.buttonWord.UseVisualStyleBackColor = true;
@@ -71,14 +77,13 @@
             // 
             // FormReportServices
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 210);
+            this.ClientSize = new System.Drawing.Size(361, 182);
             this.Controls.Add(this.buttonWord);
             this.Controls.Add(this.buttonExcel);
             this.Controls.Add(this.richTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormReportServices";
             this.Text = "Выбор формата отчета";
             this.ResumeLayout(false);

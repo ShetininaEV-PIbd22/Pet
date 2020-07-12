@@ -1,4 +1,5 @@
 ﻿using PetClinicBusinessLogic.ViewModels;
+using PetClinicDatabaseImplement.Implements;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,8 @@ namespace PetClinicClientView
 {
     public partial class FormMain : Form
     {
+        BackUpLogic backUpAbstractLogic = new BackUpLogic();
+
         public FormMain()
         {
             InitializeComponent();
@@ -21,18 +24,10 @@ namespace PetClinicClientView
         {
             try
             {
-                dataGridView.DataSource = APIClient.GetRequest<List<VisitViewModel>>($"api/main/getvisits?clientId={Program.Client.Id}");
-                foreach (var data in APIClient.GetRequest<List<VisitViewModel>>($"api/main/getvisits?clientId={Program.Client.Id}"))
-                {
-                    Console.WriteLine("FormMain: " + data.Animal + ", " + data.AnimalName + ", " + data.ClientFIO + ", "
-                        + data.ServiceName + ", " + data.Count + ", " + data.Sum + ", " + data.Status + ", " + 
-                        data.DateVisit.Date);
-                }
-                dataGridView.Columns[0].Visible = false;
+                Program.ConfigGrid(APIClient.GetRequest<List<VisitViewModel>>($"api/main/getvisits?clientId={Program.Client.Id}")
+                    , dataGridView);
                 dataGridView.Columns[1].Visible = false;
-                dataGridView.Columns[2].Visible = false;
-                dataGridView.Columns[3].Visible = false;
-                dataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
             catch (Exception ex)
             {
@@ -67,6 +62,28 @@ namespace PetClinicClientView
         {
             var form = new FormReportServices();
             form.ShowDialog();
+        }
+
+        private void создатьБекапToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (backUpAbstractLogic != null)
+                {
+                    var fbd = new FolderBrowserDialog();
+                    if (fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        backUpAbstractLogic.CreateArchive(fbd.SelectedPath);
+                        MessageBox.Show("Бекап создан", "Сообщение",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
         }
     }
 }

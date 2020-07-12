@@ -283,7 +283,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -311,7 +310,7 @@
             <Top>1.95474cm</Top>
             <Left>1.53551cm</Left>
             <Height>1.2cm</Height>
-            <Width>13.79708cm</Width>
+            <Width>13.79709cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>

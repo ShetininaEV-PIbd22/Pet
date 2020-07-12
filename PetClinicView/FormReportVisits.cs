@@ -2,6 +2,7 @@
 using PetClinicBusinessLogic.BindingModels;
 using System;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 using Unity;
 using System.Linq;
 using System.Collections.Generic;
@@ -12,37 +13,37 @@ namespace PetClinicView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly ReportLogic logic;
-        public FormReportVisits(ReportLogic logic)
+        private readonly ReportAdminLogic logic;
+        public FormReportVisits(ReportAdminLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
         }
-        private void ButtonSaveToExcel_Click(object sender, EventArgs e)
+        private void ButtonSaveToPdf_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Date to " + dateTimePickerTo.Value.Date);
-            Console.WriteLine("Date from " + dateTimePickerFrom.Value.Date);
-            if (dateTimePickerTo.Value.Date>=dateTimePickerFrom.Value.Date)
+            if (dateTimePickerFrom.Value.Date>=dateTimePickerTo.Value.Date)
             {
                 MessageBox.Show("Дата начала должна быть меньше даты окончания", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            using (var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" })
+            using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        logic.SaveOrdersToExcelFile(new ReportBindingModel { FileName = dialog.FileName, DateFrom = dateTimePickerFrom.Value.Date, DateTo = dateTimePickerTo.Value.Date });
+                        logic.SaveAllVisitsToPdfFile(new ReportBindingModel
+                        {
+                            FileName = dialog.FileName,
+                            DateFrom = dateTimePickerFrom.Value.Date,
+                            DateTo = dateTimePickerTo.Value.Date
+                        });
 
-                        MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                        MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -50,52 +51,34 @@ namespace PetClinicView
 
         private void ButtonMake_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Date to " + dateTimePickerTo.Value.Date);
-            Console.WriteLine("Date from " + dateTimePickerFrom.Value.Date);
-            if (dateTimePickerTo.Value.Date >= dateTimePickerFrom.Value.Date)
+            if (dateTimePickerFrom.Value.Date >= dateTimePickerTo.Value.Date)
             {
                 MessageBox.Show("Дата начала должна быть меньше даты окончания", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             try
             {
-                var dict = logic.GetVisits(new ReportBindingModel { DateFrom = dateTimePickerFrom.Value.Date, DateTo = dateTimePickerTo.Value.Date });
-                List<DateTime> dates = new List<DateTime>();
-                foreach (var order in dict)
+                var dataSource = logic.GetAllVisits(new ReportBindingModel
                 {
-                    if (!dates.Contains(order.DateVisit.Date))
-                    {
-                        dates.Add(order.DateVisit.Date);
-                    }
-                }
-
-                if (dict != null)
+                    DateFrom = dateTimePickerFrom.Value.Date,
+                    DateTo = dateTimePickerTo.Value.Date
+                });
+                Console.WriteLine("DateFrom= " + dateTimePickerFrom.Value.Date);
+                Console.WriteLine("DateTo= " + dateTimePickerTo.Value.Date);
+                foreach (var data in dataSource)
                 {
-                    dataGridView.Rows.Clear();
-
-                    foreach (var date in dates)
-                    {
-                        decimal dateSum = 0;
-
-                        dataGridView.Rows.Add(new object[] { date.Date, "", "" });
-
-                        foreach (var order in dict.Where(rec => rec.DateVisit.Date == date.Date))
-                        {
-                            dataGridView.Rows.Add(new object[] { "", order.ServiceName, order.Sum });
-                            dateSum += order.Sum;
-                        }
-
-                        dataGridView.Rows.Add(new object[] { "Итого", "", dateSum });
-                        dataGridView.Rows.Add(new object[] { });
-                    }
+                    Console.WriteLine(data.Animal + ", " + data.AnimalName);
                 }
+                ReportDataSource source = new ReportDataSource("DataSetVisits", dataSource);
+                reportViewer.LocalReport.DataSources.Add(source);
+                reportViewer.RefreshReport();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
     }
 }
 

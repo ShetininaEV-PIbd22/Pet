@@ -25,6 +25,7 @@ namespace PetClinicView
         {
             InitializeComponent();
             logic = service;
+            LoadData();
         }
 
         private void FormShip_Load(object sender, EventArgs e)
@@ -55,16 +56,16 @@ namespace PetClinicView
         {
             try
             {
-                //dataGridView.Columns.Clear();
-                //dataGridView.Columns.Add("Number", "№");
-                //dataGridView.Columns.Add("Ingredients", "Ингредиенты");
-                //dataGridView.Columns.Add("Count", "Количество");
+                dataGridView.Columns.Clear();
+                dataGridView.Columns.Add("Number", "№");
+                dataGridView.Columns.Add("Medicines", "Медикаменты");
+                dataGridView.Columns.Add("Count", "Количество"); 
+                dataGridView.Columns[0].Visible = false;
                 if (serviceMedicines != null)
                 {
                     dataGridView.Rows.Clear();
                     foreach (var pi in serviceMedicines)
                         dataGridView.Rows.Add(new object[] { pi.Key, pi.Value.Item1, pi.Value.Item2 });
-                        //dataGridView.Rows.Add(new object[] { pi.Value.Item1, pi.Value.Item2 });
                 }
             }
             catch (Exception ex)

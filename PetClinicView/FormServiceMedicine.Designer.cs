@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormServiceMedicine));
             this.labelMedicineName = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
             this.comboBoxMedicine = new System.Windows.Forms.ComboBox();
@@ -38,6 +39,8 @@
             // 
             // labelMedicineName
             // 
+            this.labelMedicineName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMedicineName.AutoSize = true;
             this.labelMedicineName.Location = new System.Drawing.Point(12, 21);
             this.labelMedicineName.Name = "labelMedicineName";
@@ -47,6 +50,8 @@
             // 
             // labelCount
             // 
+            this.labelCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCount.AutoSize = true;
             this.labelCount.Location = new System.Drawing.Point(17, 54);
             this.labelCount.Name = "labelCount";
@@ -56,6 +61,8 @@
             // 
             // comboBoxMedicine
             // 
+            this.comboBoxMedicine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxMedicine.FormattingEnabled = true;
             this.comboBoxMedicine.Location = new System.Drawing.Point(92, 18);
             this.comboBoxMedicine.Name = "comboBoxMedicine";
@@ -64,6 +71,8 @@
             // 
             // textBoxCount
             // 
+            this.textBoxCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCount.Location = new System.Drawing.Point(95, 54);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(220, 20);
@@ -71,6 +80,8 @@
             // 
             // buttonSave
             // 
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSave.Location = new System.Drawing.Point(15, 91);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(80, 32);
@@ -81,6 +92,8 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.Location = new System.Drawing.Point(229, 91);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(86, 32);
@@ -100,6 +113,7 @@
             this.Controls.Add(this.comboBoxMedicine);
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelMedicineName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormServiceMedicine";
             this.Text = "Медикамент для медицинской услуги";
             this.ResumeLayout(false);

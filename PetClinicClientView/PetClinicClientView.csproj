@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <UserSecretsId>697b95d2-85a6-46bd-af66-3888f8aa5431</UserSecretsId>
+    <ApplicationIcon>cat.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

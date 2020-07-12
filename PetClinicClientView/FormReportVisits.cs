@@ -76,12 +76,8 @@ namespace PetClinicClientView
                     .Where(rec=> rec.DateVisit.Date<= dateTimePickerFrom.Value.Date)
                     .Where(rec=> rec.DateVisit.Date>= dateTimePickerTo.Value.Date)
                     .ToList();
-                dataGridView.DataSource = list;
-                dataGridView.Columns[0].Visible = false;
+                Program.ConfigGrid(list, dataGridView);
                 dataGridView.Columns[1].Visible = false;
-                dataGridView.Columns[2].Visible = false;
-                dataGridView.Columns[3].Visible = false;
-                dataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
             catch (Exception ex)
             {

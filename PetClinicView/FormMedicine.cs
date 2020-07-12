@@ -29,7 +29,6 @@ namespace PetClinicView
             {
                 try
                 {
-                    
                     var view = logic.Read(new MedicineBindingModel { Id = id })?[0];
                     if (view != null)
                         textBoxName.Text = view.MedicineName;

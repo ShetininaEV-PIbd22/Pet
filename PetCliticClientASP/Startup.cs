@@ -25,12 +25,12 @@ namespace PetClinicRestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddNewtonsoftJson();
+            services.AddTransient<ReportClientLogic>();
             services.AddTransient<IClientLogic, ClientLogic>();
             services.AddTransient<IVisitLogic, VisitLogic>();
             services.AddTransient<IServiceLogic, ServiceLogic>();
             services.AddTransient<IMessageInfoLogic, MessageInfoLogic>();
             services.AddTransient<MainLogic>();
-            services.AddTransient<ReportLogic>();
             services.AddControllers();
         }
 

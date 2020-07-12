@@ -11,8 +11,8 @@ namespace PetClinicView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly ReportLogic logic;
-        public FormReportServiceMedicines(ReportLogic logic)
+        private readonly ReportAdminLogic logic;
+        public FormReportServiceMedicines(ReportAdminLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
@@ -25,7 +25,7 @@ namespace PetClinicView
                 {
                     try
                     {
-                        logic.SaveVisitsToPdfFile(new ReportBindingModel
+                        logic.SaveServiceMedicinesToPdfFile(new ReportBindingModel
                         {
                             FileName = dialog.FileName,
                         });
@@ -44,7 +44,7 @@ namespace PetClinicView
             try
             {
                 var dataSource = logic.GetServiceMedicine();
-                ReportDataSource source = new ReportDataSource("DataServiceMedicine", dataSource);
+                ReportDataSource source = new ReportDataSource("DataSetServiceMedicines", dataSource);
                 reportViewer.LocalReport.DataSources.Add(source);
                 reportViewer.RefreshReport();
             }
@@ -57,6 +57,7 @@ namespace PetClinicView
         private void FormReportServiceMedicines_Load(object sender, EventArgs e)
         {
 
+            this.reportViewer.RefreshReport();
         }
     }
 }
