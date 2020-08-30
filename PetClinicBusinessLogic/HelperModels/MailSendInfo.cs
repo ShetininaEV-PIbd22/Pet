@@ -10,5 +10,6 @@ namespace PetClinicBusinessLogic.HelperModels
         public string Subject { get; set; }
         public string Text { get; set; }
         public object Body { get; set; }
+        public string Attachment { get; set; }
     }
 }

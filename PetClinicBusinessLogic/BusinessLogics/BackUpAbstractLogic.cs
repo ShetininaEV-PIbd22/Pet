@@ -4,12 +4,13 @@ using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 using System.Runtime.Serialization.Json;
+using System.Xml.Linq;
 
 namespace PetClinicBusinessLogic.BusinessLogics
 {
     public abstract class BackUpAbstractLogic
     {
-        public void CreateArchive(string folderName)
+        public void CreateArchive(string folderName, string format)
         {
             try
             {
@@ -31,7 +32,21 @@ namespace PetClinicBusinessLogic.BusinessLogics
                 // вытаскиваем список классов для сохранения
                 var dbsets = GetFullList();
                 // берем метод для сохранения (из базвого абстрактного класса)
-                MethodInfo method = GetType().BaseType.GetTypeInfo().GetDeclaredMethod("SaveToFile");
+                MethodInfo method = null;
+                switch (format)
+                {
+                    case "json":
+                        {
+                            method = GetType().BaseType.GetTypeInfo().GetDeclaredMethod("SaveToFileJson"); 
+                            break;
+                        }
+                    case "xml":
+                        {
+                            method = GetType().BaseType.GetTypeInfo().GetDeclaredMethod("SaveToFileXml");
+                            break;
+                        }
+                }
+
                 foreach (var set in dbsets)
                 {
                     // создаем объект из класса для сохранения
@@ -52,7 +67,7 @@ namespace PetClinicBusinessLogic.BusinessLogics
                 throw;
             }
         }
-        private void SaveToFile<T>(string folderName) where T : class, new()
+        private void SaveToFileJson<T>(string folderName) where T : class, new()
         {
             var records = GetList<T>();
             T obj = new T();
@@ -60,6 +75,18 @@ namespace PetClinicBusinessLogic.BusinessLogics
             using (FileStream fs = new FileStream(string.Format("{0}/{1}.json", folderName, obj.GetType().Name), FileMode.OpenOrCreate))
             {
                 jsonFormatter.WriteObject(fs, records);
+            }
+        }
+
+        private void SaveToFileXml<T>(string folderName) where T : class, new()
+        {
+            var records = GetList<T>();
+            T obj = new T();
+            DataContractJsonSerializer xmlFormatter = new DataContractJsonSerializer(typeof(List<T>));
+            using (FileStream fs = new FileStream(string.Format("{0}/{1}.xml", folderName, obj.GetType().Name)
+                , FileMode.OpenOrCreate))
+            {
+                xmlFormatter.WriteObject(fs, records);
             }
         }
         protected abstract Assembly GetAssembly();

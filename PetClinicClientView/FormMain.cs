@@ -13,8 +13,7 @@ namespace PetClinicClientView
 {
     public partial class FormMain : Form
     {
-        BackUpLogic backUpAbstractLogic = new BackUpLogic();
-
+        BackupLogic backUpAbstractLogic = new BackupLogic();
         public FormMain()
         {
             InitializeComponent();
@@ -63,8 +62,8 @@ namespace PetClinicClientView
             var form = new FormReportServices();
             form.ShowDialog();
         }
-
-        private void создатьБекапToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void XmlToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -73,7 +72,7 @@ namespace PetClinicClientView
                     var fbd = new FolderBrowserDialog();
                     if (fbd.ShowDialog() == DialogResult.OK)
                     {
-                        backUpAbstractLogic.CreateArchive(fbd.SelectedPath);
+                    backUpAbstractLogic.CreateArchive(fbd.SelectedPath, "xml");
                         MessageBox.Show("Бекап создан", "Сообщение",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -85,5 +84,27 @@ namespace PetClinicClientView
                MessageBoxIcon.Error);
             }
         }
+        private void JsonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (backUpAbstractLogic != null)
+                {
+                    var fbd = new FolderBrowserDialog();
+                    if (fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        backUpAbstractLogic.CreateArchive(fbd.SelectedPath, "json");
+                        MessageBox.Show("Бекап создан", "Сообщение",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

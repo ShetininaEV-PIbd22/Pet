@@ -30,6 +30,7 @@ namespace PetClinicRestApi
             services.AddTransient<IVisitLogic, VisitLogic>();
             services.AddTransient<IServiceLogic, ServiceLogic>();
             services.AddTransient<IMessageInfoLogic, MessageInfoLogic>();
+            services.AddTransient<BackUpAbstractLogic, BackupLogic>();
             services.AddTransient<MainLogic>();
             services.AddControllers();
         }

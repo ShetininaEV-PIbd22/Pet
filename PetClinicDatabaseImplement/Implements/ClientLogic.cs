@@ -14,32 +14,35 @@ namespace PetClinicDatabaseImplement.Implements
         {
             using (var context = new PetClinicDatabase())
             {
-                Client client = context.Clients.FirstOrDefault(rec => rec.Login == model.Login || rec.Phone == rec.Phone
-                || rec.Email == model.Email && rec.Id != model.Id);
+                Client client = context.Clients.FirstOrDefault(rec => (rec.Login == model.Login && rec.Id != model.Id) &&
+                (rec.Phone == rec.Phone && rec.Id != model.Id) 
+                && (rec.Email == model.Email && rec.Id != model.Id) 
+                );
                 if (client != null)
                 {
                     throw new Exception("Уже есть такой клиент");
-                };
+                }
                 if (model.Id.HasValue)
-                {
-                    client = context.Clients.FirstOrDefault(rec=> rec.Id == model.Id);
-                    
-                    if (client == null)
                     {
-                        throw new Exception("Клиент не найден.");
+                        
+                        client = context.Clients.FirstOrDefault(rec => rec.Id == model.Id);
+
+                        if (client == null)
+                        {
+                            throw new Exception("Клиент не найден.");
+                        }
                     }
-                }
-                else
-                {
-                    client = new Client();
-                    context.Clients.Add(client);
-                }
-                client.FIO = model.FIO;
-                client.Login = model.Login;
-                client.Password = model.Password;
-                client.Email = model.Email;
-                client.Phone = model.Phone;
-                context.SaveChanges();
+                    else
+                    {
+                        client = new Client();
+                        context.Clients.Add(client);
+                    }
+                    client.FIO = model.FIO;
+                    client.Login = model.Login;
+                    client.Password = model.Password;
+                    client.Email = model.Email;
+                    client.Phone = model.Phone;
+                    context.SaveChanges();
             }
         }
 

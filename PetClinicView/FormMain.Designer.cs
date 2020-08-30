@@ -47,6 +47,8 @@
             this.buttonRef = new System.Windows.Forms.Button();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonTakeInWork = new System.Windows.Forms.Button();
+            this.xmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jsonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -135,10 +137,12 @@
             // 
             // создатьБекапToolStripMenuItem
             // 
+            this.создатьБекапToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xmlToolStripMenuItem,
+            this.jsonToolStripMenuItem});
             this.создатьБекапToolStripMenuItem.Name = "создатьБекапToolStripMenuItem";
             this.создатьБекапToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
             this.создатьБекапToolStripMenuItem.Text = "Создать бекап";
-            this.создатьБекапToolStripMenuItem.Click += new System.EventHandler(this.создатьБекапToolStripMenuItem_Click);
             // 
             // dataGridView
             // 
@@ -218,6 +222,20 @@
             this.buttonTakeInWork.UseVisualStyleBackColor = true;
             this.buttonTakeInWork.Click += new System.EventHandler(this.buttonTakeRemontInWork_Click);
             // 
+            // xmlToolStripMenuItem
+            // 
+            this.xmlToolStripMenuItem.Name = "xmlToolStripMenuItem";
+            this.xmlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xmlToolStripMenuItem.Text = "Xml";
+            this.xmlToolStripMenuItem.Click += new System.EventHandler(this.xmlToolStripMenuItem_Click);
+            // 
+            // jsonToolStripMenuItem
+            // 
+            this.jsonToolStripMenuItem.Name = "jsonToolStripMenuItem";
+            this.jsonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jsonToolStripMenuItem.Text = "Json";
+            this.jsonToolStripMenuItem.Click += new System.EventHandler(this.jsonToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,8 +279,10 @@
         private System.Windows.Forms.ToolStripMenuItem списокЗаказовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокМедикаментовToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem создатьБекапToolStripMenuItem;
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonTakeInWork;
+        private System.Windows.Forms.ToolStripMenuItem создатьБекапToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xmlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jsonToolStripMenuItem;
     }
 }

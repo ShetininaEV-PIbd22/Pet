@@ -37,7 +37,7 @@ namespace PetClinicView
             currentContainer.RegisterType<MainLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<ReportClientLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IMessageInfoLogic, MessageInfoLogic>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<BackUpAbstractLogic, BackUpLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<BackUpAbstractLogic, BackupLogic>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
         public static void ConfigGrid<T>(List<T> data, DataGridView grid)

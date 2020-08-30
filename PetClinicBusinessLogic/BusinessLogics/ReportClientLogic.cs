@@ -59,7 +59,7 @@ namespace PetClinicBusinessLogic.BusinessLogics
         {
             SaveToWord.CreateDocForServices(new WordInfo
             {
-                FileName = model.FileName, 
+                FileName = model.FileName,
                 Title = "Список услуг",
                 Services = GetServices()
             });
